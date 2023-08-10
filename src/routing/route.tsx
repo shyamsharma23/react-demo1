@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Category from "../components/Category";
+import Update from "../components/Update";
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "productCategory/:id",
-    element: <Category />,
+    path: "/updateProduct/:myID",
+    element: <Update />,
   },
 ]);
 

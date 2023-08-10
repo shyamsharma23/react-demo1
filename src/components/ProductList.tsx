@@ -42,6 +42,13 @@ const ProductList = () => {
 
     axios.post("http://localhost:3000/api/v1/product/create", obj);
   };
+  const handleDelete = (id: any) => {
+    const originalData = [...value];
+    setValue(value.filter((item: any) => item.id !== id));
+    axios.delete(`http://localhost:3000/api/v1/product/${id}`).catch(() => {
+      setValue([...originalData]);
+    });
+  };
 
   return (
     <div>
@@ -54,7 +61,7 @@ const ProductList = () => {
       </form>
       <p>Product List</p>
       {value.map((item: any) => (
-        <Display value={item} />
+        <Display value={item} onDelete={handleDelete} />
       ))}
     </div>
   );
